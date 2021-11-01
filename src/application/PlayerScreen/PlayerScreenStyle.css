@@ -1,0 +1,6 @@
+.library {
+    -fx-background-image: url('../../Images/MTGCardBack.jpg');
+	-fx-background-repeat: stretch; 
+    -fx-background-color: transparent;
+    -fx-background-size: 100.0%;
+}	

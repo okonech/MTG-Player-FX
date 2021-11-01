@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<ScrollPane fx:id="topContainer" centerShape="false" fitToHeight="true" fitToWidth="true" focusTraversable="false" hbarPolicy="NEVER" hmax="0.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="413.0" prefWidth="300.0" scaleX="1.1" vbarPolicy="NEVER" vmax="0.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.CardScreen.CardController">
+   <content>
+      <ImageView fx:id="image" fitHeight="413.0" fitWidth="300.0" onMouseClicked="#testClick" pickOnBounds="true" preserveRatio="true" />
+   </content>
+</ScrollPane>
