@@ -1,0 +1,11 @@
+.card{
+	-fx-background-color: transparent;
+	/*-fx-background-repeat: stretch; */
+    /*-fx-background-size: 100.0%; */
+}
+
+.faceDown {
+    -fx-background-image: url('../../Images/MTGCardBack.jpg');
+}
+
+	

@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<SplitPane dividerPositions="0.16079494128274616" prefHeight="497.0" prefWidth="1109.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="userInterface.PlayerScreen.PlayerController">
+   <items>
+      <VBox maxWidth="175.0" minWidth="100.0" prefHeight="591.0" prefWidth="125.0">
+         <children>
+            <VBox>
+               <children>
+                  <ScrollPane hbarPolicy="NEVER" prefHeight="200.0" prefWidth="200.0" vbarPolicy="NEVER" VBox.vgrow="ALWAYS">
+                     <content>
+                        <ImageView fx:id="library" onMouseClicked="#testClick" pickOnBounds="true" preserveRatio="true" smooth="false">
+                           <image>
+                              <Image url="@../../Images/MTGCardBack.jpg" />
+                           </image>
+                        </ImageView>
+                     </content>
+                  </ScrollPane>
+                  <HBox maxHeight="-Infinity" minHeight="-Infinity" prefHeight="35.0" style="-fx-background-color: red;" VBox.vgrow="NEVER" />
+               </children></VBox>
+            <Accordion VBox.vgrow="ALWAYS">
+              <panes>
+                <TitledPane animated="false" text="Graveyard">
+                  <content>
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                  </content>
+                </TitledPane>
+                <TitledPane animated="false" text="Exile">
+                  <content>
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                  </content>
+                </TitledPane>
+                <TitledPane animated="false" text="Exile FD">
+                  <content>
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                  </content>
+                </TitledPane>
+              </panes>
+            </Accordion>
+         </children>
+      </VBox>
+      <SplitPane dividerPositions="0.7555555555555555" orientation="VERTICAL" prefHeight="200.0" prefWidth="160.0">
+        <items>
+            <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: green;">
+               <children>
+                  <GridPane hgap="5.0" minHeight="105.0" prefHeight="105.0" prefWidth="75.0" style="-fx-background-color: blue;" vgap="3.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0">
+                    <columnConstraints>
+                      <ColumnConstraints halignment="LEFT" hgrow="NEVER" maxWidth="-Infinity" minWidth="-Infinity" />
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="-Infinity" />
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints maxHeight="15.0" minHeight="15.0" prefHeight="15.0" vgrow="NEVER" />
+                        <RowConstraints maxHeight="15.0" minHeight="15.0" prefHeight="15.0" vgrow="NEVER" />
+                        <RowConstraints maxHeight="15.0" minHeight="15.0" prefHeight="15.0" vgrow="NEVER" />
+                      <RowConstraints minHeight="15.0" prefHeight="15.0" vgrow="NEVER" />
+                      <RowConstraints maxHeight="15.0" minHeight="15.0" prefHeight="15.0" vgrow="NEVER" />
+                      <RowConstraints maxHeight="15.0" minHeight="15.0" prefHeight="15.0" vgrow="NEVER" />
+                    </rowConstraints>
+                     <children>
+                        <Label fx:id="colorlessMana" styleClass="mana-uw" stylesheets="@manasymbols.css" text="0" textFill="#d00d0d" GridPane.columnIndex="1" />
+                        <Button disable="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" stylesheets="@manasymbols.css" GridPane.hgrow="ALWAYS" GridPane.vgrow="ALWAYS">
+                           <font>
+                              <Font name="System Bold" size="7.0" />
+                           </font>
+                           <styleClass>
+                              <String fx:value="mana-x" />
+                              <String fx:value="mana" />
+                           </styleClass></Button>
+                        <Button disable="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" stylesheets="@manasymbols.css" GridPane.rowIndex="1">
+                           <styleClass>
+                              <String fx:value="mana-w" />
+                              <String fx:value="mana" />
+                           </styleClass></Button>
+                        <Button disable="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" stylesheets="@manasymbols.css" GridPane.hgrow="ALWAYS" GridPane.rowIndex="2">
+                           <styleClass>
+                              <String fx:value="mana-u" />
+                              <String fx:value="mana" />
+                           </styleClass></Button>
+                        <Button disable="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" stylesheets="@manasymbols.css" GridPane.rowIndex="3">
+                           <styleClass>
+                              <String fx:value="mana-b" />
+                              <String fx:value="mana" />
+                           </styleClass></Button>
+                        <Button disable="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" stylesheets="@manasymbols.css" GridPane.rowIndex="4">
+                           <styleClass>
+                              <String fx:value="mana-r" />
+                              <String fx:value="mana" />
+                           </styleClass></Button>
+                        <Button disable="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" stylesheets="@manasymbols.css" GridPane.rowIndex="5">
+                           <styleClass>
+                              <String fx:value="mana-g" />
+                              <String fx:value="mana" />
+                           </styleClass></Button>
+                        <Label fx:id="whiteMana" text="0" textFill="#d00d0d" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <Label fx:id="blueMana" text="0" textFill="#d00d0d" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                        <Label fx:id="blackMana" text="0" textFill="#d00d0d" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                        <Label fx:id="redMana" text="0" textFill="#d00d0d" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                        <Label fx:id="greenMana" text="0" textFill="#d00d0d" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                     </children>
+                     <padding>
+                        <Insets left="3.0" />
+                     </padding>
+                  </GridPane>
+               </children>
+            </AnchorPane>
+            <VBox maxHeight="435.0" prefHeight="130.0" prefWidth="100.0">
+               <children>
+                  <HBox maxHeight="35.0" minHeight="35.0" prefHeight="35.0" prefWidth="200.0" style="-fx-background-color: black;" VBox.vgrow="NEVER" />
+                  <ScrollPane fx:id="handContainer" cacheShape="false" fitToHeight="true" fitToWidth="true" hbarPolicy="ALWAYS" nodeOrientation="LEFT_TO_RIGHT" prefViewportWidth="926.0" style="-fx-background-color: orange;" vbarPolicy="NEVER" VBox.vgrow="ALWAYS">
+                     <content>
+                        <HBox fx:id="hand" alignment="TOP_CENTER" cacheShape="false" minHeight="50.0" scaleShape="false" style="-fx-background-color: yellow;" VBox.vgrow="ALWAYS" />
+                     </content>
+                  </ScrollPane>
+               </children>
+            </VBox>
+        </items>
+      </SplitPane>
+   </items>
+</SplitPane>

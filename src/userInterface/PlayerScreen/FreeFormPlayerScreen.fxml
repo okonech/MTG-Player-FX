@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<SplitPane dividerPositions="0.16079494128274616" prefHeight="497.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="userInterface.PlayerScreen.PlayerController">
+   <items>
+      <VBox maxWidth="175.0" minWidth="100.0" prefHeight="591.0" prefWidth="125.0">
+         <children>
+            <VBox>
+               <children>
+                  <ScrollPane hbarPolicy="NEVER" vbarPolicy="NEVER" VBox.vgrow="ALWAYS">
+                     <content>
+                        <ImageView fx:id="library" onMouseClicked="#testClick" pickOnBounds="true" preserveRatio="true" smooth="false">
+                           <image>
+                              <Image url="@../../Images/MTGCardBack.jpg" />
+                           </image>
+                        </ImageView>
+                     </content>
+                  </ScrollPane>
+                  <HBox maxHeight="-Infinity" minHeight="-Infinity" prefHeight="35.0" style="-fx-background-color: red;" VBox.vgrow="NEVER" />
+               </children></VBox>
+            <Accordion VBox.vgrow="ALWAYS">
+              <panes>
+                <TitledPane animated="false" text="Graveyard">
+                  <content>
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                  </content>
+                </TitledPane>
+                <TitledPane animated="false" text="Exile">
+                  <content>
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                  </content>
+                </TitledPane>
+                <TitledPane animated="false" text="Exile Face Down">
+                  <content>
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                  </content>
+                </TitledPane>
+              </panes>
+            </Accordion>
+         </children>
+      </VBox>
+      <SplitPane dividerPositions="0.7555555555555555" orientation="VERTICAL" prefHeight="200.0" prefWidth="160.0">
+        <items>
+            <AnchorPane fx:id="battlefieldPane" prefHeight="200.0" prefWidth="200.0" />
+            <AnchorPane maxHeight="360.0" minHeight="80.0" prefHeight="120.0">
+               <children>
+                  <ListView fx:id="hand" cacheShape="false" centerShape="false" focusTraversable="false" nodeOrientation="LEFT_TO_RIGHT" orientation="HORIZONTAL" prefHeight="400.0" prefWidth="751.0" styleClass="background" stylesheets="@PlayerScreenStyle.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+               </children>
+            </AnchorPane>
+        </items>
+      </SplitPane>
+   </items>
+</SplitPane>

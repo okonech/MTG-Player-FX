@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<ScrollPane fx:id="scrollPane" centerShape="false" fitToHeight="true" fitToWidth="true" focusTraversable="false" hbarPolicy="NEVER" hmax="0.0" nodeOrientation="LEFT_TO_RIGHT" onDragDetected="#onCardDragDetected" onDragDone="#onCardDragDone" onDragDropped="#onCardDragDropped" onDragEntered="#onCardDragEntered" onDragExited="#onCardDragExited" onDragOver="#onCardDragOver" onMouseClicked="#onCardClick" scaleX="1.1" style="-fx-background-color: red;" styleClass="card" stylesheets="@CardScreenStyle.css" vbarPolicy="NEVER" vmax="0.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="userInterface.CardScreen.CardController">
+   <content>
+      <ImageView fx:id="imageView" pickOnBounds="true" smooth="false" styleClass="card" />
+   </content>
+</ScrollPane>

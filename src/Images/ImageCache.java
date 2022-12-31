@@ -1,6 +1,5 @@
 package Images;
 
-import java.io.File;
 import java.util.HashMap;
 
 import CardBase.Card;
@@ -10,50 +9,25 @@ public class ImageCache {
     // key = multiverse ID
     private HashMap<String, Image> cardImages;
     private String folderPath;
+    private ImageFileHandler fileHandler;
 
     public ImageCache() {
         this.cardImages = new HashMap<String, Image>();
-        this.folderPath = "F:/Program Files (x86)/Magic Workstation/Pics/";
+        this.folderPath = "F:/Games/PlayerFx/Pics/";
+        this.fileHandler= new ImageFileHandler(folderPath);
     }
 
     public Image getCachedCardImage(Card card) {
-        // get image by multiverseID from card
-        Image cardImage = cardImages.get(card);
-        // load local
-        if (cardImage == null) {
-            cardImage = loadLocalImage(card);
-        }
-        // default to load from internet
-        if (cardImage == null) {
-            cardImage = loadGathererCardImage(card);
-        }
-        return cardImage;
-    }
-
-    public Image loadGathererCardImage(Card card) {
-        System.out
-                .println("Load image from gatherer: " + card.getMultiverseID());
-        Image cardImage = new Image(
-                "http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid="
-                        + card.getMultiverseID() + "&type=card");
-        // add newly loaded image to cache
-        cardImages.put(card.getMultiverseID(), cardImage);
-        return cardImage;
-    }
-
-    public Image loadLocalImage(Card card) {
-        String path = folderPath + card.getSet() + "/" + card.getName();
-        // try to load full image (.full)
-        File imageFile = new File(path + ".full.jpg");
-        if (imageFile.isFile()) {
-            Image cardImage = new Image(imageFile.toURI().toString());
+        // get image by uuid from card
+        Image cardImage = cardImages.get(card.getCardUUID());
+        if(cardImage==null){
+            cardImage=fileHandler.getImage(card);
             // add newly loaded image to cache
-            cardImages.put(card.getMultiverseID(), cardImage);
-            return cardImage;
+            cardImages.put(card.getCardUUID(), cardImage);
         } else {
-            return null;
+            System.out.println("Found in cache");
         }
-
+        return cardImage;
     }
 
 }

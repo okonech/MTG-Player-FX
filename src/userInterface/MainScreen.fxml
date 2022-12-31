@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane fx:id="rootPane" prefHeight="385.0" prefWidth="471.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="userInterface.MainScreenController">
+   <children>
+      <BorderPane fx:id="mainBorderPane" prefHeight="385.0" prefWidth="471.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <top>
+            <MenuBar prefWidth="471.0" BorderPane.alignment="CENTER">
+              <menus>
+                <Menu mnemonicParsing="false" text="Fx Player">
+                  <items>
+                        <MenuItem fx:id="newGame" mnemonicParsing="false" onAction="#newGameAction" text="New Game (Local)" />
+                    <MenuItem fx:id="exit" mnemonicParsing="false" onAction="#exitAction" text="Exit" />
+                  </items>
+                </Menu>
+                  <Menu mnemonicParsing="false" text="Deck">
+                    <items>
+                        <MenuItem fx:id="newDeck" mnemonicParsing="false" onAction="#newDeckAction" text="New Deck" />
+                        <MenuItem fx:id="loadDeck" mnemonicParsing="false" onAction="#loadDeckAction" text="Load Deck" />
+                    </items>
+                  </Menu>
+                <Menu mnemonicParsing="false" text="Preferences">
+                  <items>
+                    <MenuItem mnemonicParsing="false" text="Delete" />
+                  </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Help">
+                  <items>
+                    <MenuItem mnemonicParsing="false" onAction="#aboutAction" text="About" />
+                  </items>
+                </Menu>
+                  <Menu mnemonicParsing="false" text="Testing">
+                    <items>
+                      <MenuItem fx:id="testNewTab" mnemonicParsing="false" onAction="#testNewTabAction" text="New Tab" />
+                        <MenuItem fx:id="testLaunchPlayerScreen" mnemonicParsing="false" onAction="#testLaunchPlayerScreenAction" text="Launch Player Screen" />
+                    </items>
+                  </Menu>
+              </menus>
+            </MenuBar>
+         </top>
+         <center>
+            <TabPane fx:id="mainTabPane" prefHeight="360.0" prefWidth="471.0" tabClosingPolicy="SELECTED_TAB" BorderPane.alignment="CENTER" />
+         </center>
+      </BorderPane>
+   </children>
+</AnchorPane>

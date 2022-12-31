@@ -3,6 +3,7 @@ package CardBase.CardTypes;
 public enum SuperType {
     ARTIFACT,
     BASIC,
+    // not implemented
     CONSPIRACY,
     CREATURE,
     ENCHANTMENT,

@@ -1,0 +1,4 @@
+.label:selected {
+    -fx-background-color: -fx-background ;
+    -fx-background: -fx-selection-bar ;
+}

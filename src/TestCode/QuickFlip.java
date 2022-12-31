@@ -1,14 +1,20 @@
 package TestCode;
-import javafx.animation.*;
+
+import javafx.animation.Interpolator;
+import javafx.animation.RotateTransition;
 import javafx.application.Application;
-import javafx.scene.*;
-import javafx.scene.image.*;
+import javafx.scene.Node;
+import javafx.scene.PerspectiveCamera;
+import javafx.scene.Scene;
+import javafx.scene.SceneAntialiasing;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.StackPane;
 import javafx.scene.transform.Rotate;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
-public class QuickFlip  extends Application {
+public class QuickFlip extends Application {
     @Override
     public void start(Stage stage) throws Exception {
         Node card = createCard();
@@ -31,11 +37,7 @@ public class QuickFlip  extends Application {
     }
 
     private Node createCard() {
-        return new ImageView(
-            new Image(
-                "http://www.ohmz.net/wp-content/uploads/2012/05/Game-of-Throne-Magic-trading-cards-2.jpg"
-            )
-        );
+        return new ImageView(new Image("http://www.ohmz.net/wp-content/uploads/2012/05/Game-of-Throne-Magic-trading-cards-2.jpg"));
     }
 
     private RotateTransition createRotator(Node card) {

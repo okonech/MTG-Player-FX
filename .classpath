@@ -1,8 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
 	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="src" path="libs"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8"/>
 	<classpathentry kind="con" path="org.eclipse.fx.ide.jdt.core.JAVAFX_CONTAINER"/>
-	<classpathentry kind="lib" path="C:/Users/Alex/workspace/MTG Player FX/gson-2.7.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Alex/git/mtg-player-fx/libs/jfxtras-labs-8.0-r5.jar" sourcepath="C:/Program Files/Java/Jars/jfxtras-labs-8.0-r5-sources.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Alex/git/mtg-player-fx/libs/gson-2.8.2.jar" sourcepath="C:/Program Files/Java/Jars/gson-2.8.2-sources.jar"/>
+	<classpathentry kind="lib" path="libs/dockfx-0.1b.jar" sourcepath="C:/Program Files/Java/Jars/DockFX-0.1b.zip"/>
+	<classpathentry kind="lib" path="libs/jfxtras-labs-8.0-r5.jar"/>
+	<classpathentry kind="lib" path="libs/gson-2.8.2.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

@@ -1,6 +1,6 @@
 package Game.Turns;
 
-import Game.Player;
+import Player.Player;
 
 public class Turn {
     Player player;

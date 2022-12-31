@@ -1,14 +1,14 @@
 package Game.Turns;
 
-import Game.GameState;
-import Game.Player;
+import Game.Game;
+import Player.Player;
 
 public class TurnFactory {
     
-    private GameState gameState;
+    private Game game;
 
-    public TurnFactory(GameState gameState){
-        this.gameState=gameState;
+    public TurnFactory(Game game){
+        this.game=game;
     }
     
     public Turn newTurn(Player player){

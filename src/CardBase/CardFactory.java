@@ -1,21 +1,29 @@
 package CardBase;
 
-import Game.GameState;
-import Game.Player;
+import java.io.IOException;
+
+import CardBase.JSONDatabaseParser.CardJSON;
+import Game.Game;
+import Player.Player;
 
 // given a set of arguments for a card, reads the first and creates the proper class type object
 // then passes the rest of the arguments to that object's constructor
 public class CardFactory {
 
     CardDatabase database;
-    GameState gameState;
+    Game game;
 
-    public CardFactory(GameState gameState) {
-        this.database = new CardDatabase();
-        this.gameState = gameState;
+    public CardFactory(Game game) {
+        try {
+            this.database = new CardDatabase("fake path");
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        this.game = game;
     }
 
-    public Card makeCard(Player player, String[] args)
+    public Card makeCard(Player player, CardJSON cardJson)
             throws InstantiationException, IllegalAccessException,
             ClassNotFoundException {
         String arg1 = "Creature";
@@ -24,7 +32,7 @@ public class CardFactory {
         // just create new blank instance here
         Card newCard = (Card) Class.forName(arg1).newInstance();
         // handle all further initialization and pass args
-        newCard.initializeCard(player, args);
+        newCard.initializeCard(player, cardJson);
         return newCard;
     }
 
@@ -32,16 +40,17 @@ public class CardFactory {
             throws InstantiationException, IllegalAccessException,
             ClassNotFoundException {
         String[] args;
+        CardJSON cardJson;
         if (set.length() > 0) {
             // edition exists, query set DB
-            args = database.searchCard(cardName, set);
+            cardJson = database.searchCard(cardName, set);
         } else {
-            // query with just name (requires 2 searches)
-            args = database.searchCard(cardName);
+            // query with just name and use first found set
+            cardJson = database.searchCard(cardName);
         }
-        args = new String[] { cardName, set };
-        return makeCard(player, args);
+        return makeCard(player, cardJson);
     }
+    
 
     private String qualifiedClassPath(String cardClass)
             throws ClassNotFoundException {

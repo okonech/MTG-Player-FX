@@ -1,59 +1,58 @@
 package CardBase;
 
-import java.io.IOException;
 import java.util.Set;
 
+import CardBase.CardFunctions.Ability;
+import CardBase.CardFunctions.Action;
 import CardBase.CardTypes.SubType;
 import CardBase.CardTypes.SuperType;
-import Game.Player;
-import Game.Zone;
-import application.CardScreen.CardController;
-import javafx.fxml.FXMLLoader;
+import CardBase.CardTypes.Type;
+import CardBase.JSONDatabaseParser.CardJSON;
+import Player.Player;
+import Player.PlayerZone;
+import userInterface.CardScreen.CardController;
 
 public class Card {
-    private String name;
-    private String set;
-    // id to scrape image from Gatherer
-    private String multiverseID;
+    private CardJSON cardJson;
     private Player owner;
     private Player controller;
-    // supertypes and overrides
-    private Set<SuperType> superTypes;
-    private Set<SuperType> superTypesDefault;
-    // subtypes and overrides
+    // type overrides
+    private Set<Type> types;
+    // subtype overrides
     private Set<SubType> subTypes;
-    private Set<SubType> subTypesDefault;
+    // supertype overrides
+    private Set<SuperType> superTypes;
     // list of abilities
     private Set<Ability> abilities;
     private Set<Ability> abilitiesDefault;
+    
+    // list of actions
+    private Set<Action> actions;
+    
     // incremented when changing zones, used to keep track of blink, etc
     private int zoneChangeCount;
-    // enumerated zone
-    private Zone zone;
+    // enumerated zone and cards list in the zone
+    private PlayerZone zone;
     // controller for this card
     private CardController cardController;
 
     public Card() {
         // only always true declarations go here
         this.zoneChangeCount = 0;
-        // default to library zone
-        if (this.zone == null) {
-            this.zone = Zone.LIBRARY;
-        }
-        
     }
     
-    public void initializeCard(Player player, String[] args){
+    public void initializeCard(Player player, CardJSON cardJson){
+        this.cardJson=cardJson;
         // probably take in list of attributes here
         this.owner=player;
         this.controller=player;
-        this.multiverseID = Integer.toString(79217);
-        //this.name = "Isamaru, Hound of Konda";
-        //this.set="CHK";
-        this.name=args[0];
-        this.set=args[1];
+        
+        // default to library zone
+        zone=player.getLibrary();
+        
         // load controller and UI for this Card
-        loadController();
+        //loadController();
+        this.cardController= CardController.makeController(this);
     }
 
     // return name + zone change counter
@@ -63,19 +62,19 @@ public class Card {
     }
 
     public String testOut() {
-        return "Card";
+        return cardJson.name;
     }
 
     public String getName() {
-        return name;
+        return cardJson.name;
     }
 
-    public String getZone() {
-        return zone.toString();
+    public PlayerZone getZone() {
+        return zone;
     }
 
     public String getMultiverseID() {
-        return multiverseID;
+        return cardJson.multiverseid;
     }
 
     public void setController(CardController cardController) {
@@ -86,30 +85,56 @@ public class Card {
         return cardController;
     }
     
-    public Player getOwner() {
+    public Player getPlayerOwner() {
         return owner;
     }
     
-    public Player getController() {
+    public Player getPlayerController() {
         return controller;
     }
-
-    public void loadController() {
-        FXMLLoader fxmlLoader = new FXMLLoader(
-                getClass().getResource("../../application/CardScreen/CardScreen.fxml"));
-        try {
-            fxmlLoader.load();
-        } catch (IOException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
-        // set references between Card and CardController
-        this.cardController = fxmlLoader.<CardController> getController();
-        this.cardController.setCard(this);
+    
+    public String getSetCode(){
+        return cardJson.set.code;
     }
     
-    public String getSet(){
-        return set;
+    public String getSetGatherer(){
+        return cardJson.set.gathererCode;
+    }
+    
+    public String getSetMagicCardsInfo(){
+        return cardJson.set.magicCardsInfoCode;
+    }
+    
+    public String getSetNumber(){
+        return cardJson.number;
+    }
+    
+    public String getMciNumber(){
+        return cardJson.mciNumber;
+    }
+    
+    public String getCardUUID(){
+        return cardJson.id;
+    }
+    
+    public Set<SuperType> getSuperTypes(){
+        return superTypes;
+    }
+    
+    public Set<SuperType> getSuperTypesDefault(){
+        return superTypes;
+    }
+    
+    public String getOracleText(){
+        return cardJson.text;
+    }
+    
+    public Set<Action> getActions(){
+        return actions;
+    }
+
+    public void updateZone(PlayerZone zone) {
+        this.zone=zone;
     }
 
 }
